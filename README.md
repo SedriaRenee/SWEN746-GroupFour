@@ -30,16 +30,17 @@ The app will provide a platform for users to engage in various food-related acti
 CraveMates/Sustenance is a social platform that brings food enthusiasts together through shared culinary experiences. Users can host or join potluck events, cooking workshops, and weekly restaurant groups, catering to diverse food preferences and dietary needs. The app includes a news feed for open communication, channels for sharing recipes, and a tagging system for allergies, ensuring transparency and inclusivity. Profiles showcase users’ culinary journeys, while hosts can also list kitchens or dining spaces for rent, fostering a vibrant community centered around food.
 
 ### MVP Features
->  One feature of the app will include the ability to create and host a “potluck event” where people can sign up for different food items or parts of a recipe.
-One feature of the app will allow a host to create a poll of meal preferences before they launch their event. This will allow hosts to plan a menu that everyone will enjoy.
-One feature of the app will include the ability of a host to organize a cooking workshop. 
-One feature of the app will allow a host to create a group for people to join where they will visit restaurants every week. This is a specific feature but hosts will be able to create groups based on their preferences as well. Users will also be able to join these groups.
-One feature of this app will include a news feed where hosts and users can communicate openly. All will have the ability to reply, like and re-share posts. 
-One feature of this app will include channels for food categories so users and hosts can share or look at other recipes.
-One feature of this app will include a profile for users and hosts. In the profile you can see pictures, videos, past events, and a bio of the applicant. The profile will also have a private messaging system.
-One feature of this app will include a tagging feature. This will allow for hosts to tag allergies on events and users can add this feature onto their profile as well for transparency. 
-One feature of this app will allow hosts to post listings on kitchens/dining spaces to rent out.
-One feature of this app will feature a follow button so users can follow their favorite pages, groups, hosts, and etc.
+* One feature of the app will include the ability to create and host a “potluck event” where people can sign up for different food items or parts of a recipe.
+
+* One feature of the app will allow a host to create a poll of meal preferences before they launch their event. This will allow hosts to plan a menu that everyone will enjoy.
+* One feature of the app will include the ability of a host to organize a cooking workshop. 
+* One feature of the app will allow a host to create a group for people to join where they will visit restaurants every week. This is a specific feature but hosts will be able to create groups based on their preferences as well. Users will also be able to join these groups.
+* One feature of this app will include a news feed where hosts and users can communicate openly. All will have the ability to reply, like and re-share posts. 
+* One feature of this app will include channels for food categories so users and hosts can share or look at other recipes.
+* One feature of this app will include a profile for users and hosts. In the profile you can see pictures, videos, past events, and a bio of the applicant. The profile will also have a private messaging system.
+* One feature of this app will include a tagging feature. This will allow for hosts to tag allergies on events and users can add this feature onto their profile as well for transparency. 
+* One feature of this app will allow hosts to post listings on kitchens/dining spaces to rent out.
+* One feature of this app will feature a follow button so users can follow their favorite pages, groups, hosts, and etc.
 
 
 
