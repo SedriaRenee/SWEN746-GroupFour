@@ -31,7 +31,6 @@ CraveMates/Sustenance is a social platform that brings food enthusiasts together
 
 ### MVP Features
 * One feature of the app will include the ability to create and host a “potluck event” where people can sign up for different food items or parts of a recipe.
-
 * One feature of the app will allow a host to create a poll of meal preferences before they launch their event. This will allow hosts to plan a menu that everyone will enjoy.
 * One feature of the app will include the ability of a host to organize a cooking workshop. 
 * One feature of the app will allow a host to create a group for people to join where they will visit restaurants every week. This is a specific feature but hosts will be able to create groups based on their preferences as well. Users will also be able to join these groups.
@@ -42,6 +41,29 @@ CraveMates/Sustenance is a social platform that brings food enthusiasts together
 * One feature of this app will allow hosts to post listings on kitchens/dining spaces to rent out.
 * One feature of this app will feature a follow button so users can follow their favorite pages, groups, hosts, and etc.
 
+### Acceptance Criteria
+
+Feature 1: 
+  One feature of the app will include the ability to create and host a “potluck event” where people can sign up for different food items or parts of a recipe.
+
+  Criteria I:
+    Given that I'm a user when I log on I will see an option to register as a host.
+
+  Criteria II:
+    App displays an option for a host to create an event.
+
+
+Feature 2:
+  One feature of the app will allow a host to create a poll of meal preferences before they launch their event. This will allow hosts to plan a menu that everyone will enjoy.
+
+  Criteria I:
+    Displays an option to create a poll.
+
+  Criteria II:
+    User will be prompted to register as host if they aren't currently one before creating poll.
+
+  Criteria III:
+    Has an option for the host to write a short description that is no longer than 500 characters.
 
 
 ## Architecture and Design
