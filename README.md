@@ -65,6 +65,29 @@ Feature 2:
   Criteria III:
     Has an option for the host to write a short description that is no longer than 500 characters.
 
+Feature 3:
+  One feature of the app will include the ability of a host to organize a cooking workshop. 
+
+  Criteria I:
+    Shows all available event channels where events are being hosted.
+
+  Criteria II:
+    User can select which events they would want to participate in and register for the events selected. Only stopping them if there is an overlap in terms of time.
+
+  Criteria III:
+    User can see the location and starting time of the event. Alongside any tools or ingredients they would need to bring with them.
+
+Feature 4:
+  One feature of the app will allow a host to create a group for people to join where they will visit restaurants every week. This is a specific feature but hosts will be able to create groups based on their preferences as well. Users will also be able to join these groups.
+
+  Criteria I:
+    Host can select which Users and Resturants that coencide with User and Host preferences along with date and time of meeting
+
+  Criteria II:
+    Host can modify event details, such as the restaurant of choice, members that are attending, along with time and date of the event.
+  
+  Criteria III:
+    User can view the details of an event made by the Host and register for the same event if they have similar interests. Users can also tell the Host of any potential allergies they may have.
 
 ## Architecture and Design
 
