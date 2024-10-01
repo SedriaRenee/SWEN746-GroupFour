@@ -52,6 +52,15 @@ Feature 1:
   Criteria II:
     App displays an option for a host to create an event.
 
+  Criteria III:
+    Host will be able upload up to 6 pictures/videos to the event and a short description that is no longer than 500 characters.
+
+  Criteria IV:
+    The event will feature a news feed that can be filtered by popularity/recency.
+
+  Criteria V:
+    Will include a public list of members who joined the event.
+
 
 Feature 2:
   One feature of the app will allow a host to create a poll of meal preferences before they launch their event. This will allow hosts to plan a menu that everyone will enjoy.
@@ -88,6 +97,39 @@ Feature 4:
   
   Criteria III:
     User can view the details of an event made by the Host and register for the same event if they have similar interests. Users can also tell the Host of any potential allergies they may have.
+Feature 5:
+  One feature of this app will include a news feed where hosts and users can communicate openly. All will have the ability to reply, like and re-share posts. 
+
+  Criteria I:
+    The news feed and replies will be sorted by recency of posts.
+
+  Criteria II:
+    Users will be able filter for only posts they have liked or have replied to or from users they are following.
+
+  Criteria III:
+    Users will be able to create posts linking up to 1 media file and a limited amount of text, the same restriction will apply to replies.
+
+  Criteria IV:
+    Users will be able to like posts which the total amount of likes a post has will be viewable by other users
+
+  Criteria V:
+    Users will be able to reshare posts which will then be visible to people filtering for posts from people they follow.
+
+
+
+Feature 6: 
+  One feature of this app will include channels for food categories so users and hosts can share or look at other recipes
+
+  Criteria I:
+    Recipes posted in a channel will be sortable based on either the posts popularity or its recency
+
+  Criteria II:
+    Recipes will have different fields for the user to fill out including ingredients, background, and instructions
+
+  Criteria III:
+    New channels will be able to be proposed by users which can then be approved by staff
+
+
 
 ## Architecture and Design
 
