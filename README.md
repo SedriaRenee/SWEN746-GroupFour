@@ -154,8 +154,7 @@ Feature 7:
 
 Feature 8:
 
-  Criteria I:
-    Hosts can input and tag food allergies when creating an event.
+  Criteria I:Hosts can input and tag food allergies when creating an event.
 
   Criteria II:
 
