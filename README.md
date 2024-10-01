@@ -97,6 +97,7 @@ Feature 4:
   
   Criteria III:
     User can view the details of an event made by the Host and register for the same event if they have similar interests. Users can also tell the Host of any potential allergies they may have.
+    
 Feature 5:
   One feature of this app will include a news feed where hosts and users can communicate openly. All will have the ability to reply, like and re-share posts. 
 
