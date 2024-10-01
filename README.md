@@ -52,6 +52,15 @@ Feature 1:
   Criteria II:
     App displays an option for a host to create an event.
 
+  Criteria III:
+    Host will be able upload up to 6 pictures/videos to the event and a short description that is no longer than 500 characters.
+
+  Criteria IV:
+    The event will feature a news feed that can be filtered by popularity/recency.
+
+  Criteria V:
+    Will include a public list of members who joined the event.
+
 
 Feature 2:
   One feature of the app will allow a host to create a poll of meal preferences before they launch their event. This will allow hosts to plan a menu that everyone will enjoy.
