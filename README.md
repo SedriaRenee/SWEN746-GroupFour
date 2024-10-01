@@ -153,8 +153,8 @@ Feature 7:
 
 
 Feature 8:
-  Criteria I:
 
+  Criteria I:
     Hosts can input and tag food allergies when creating an event.
 
   Criteria II:
@@ -170,7 +170,7 @@ Feature 8:
     The system warns Users during sign-up if an event contains allergens they are allergic to (based on their profile).
 
   Criteria V:
-  
+
     Users can add or update their dietary restrictions in their profile at any time.
 
 
