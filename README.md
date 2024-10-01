@@ -154,6 +154,34 @@ Feature 8:
 
   Criteria V: Users can add or update their dietary restrictions in their profile at any time.
 
+Feature 9:
+  As a Host, I want to be able to rent out my space so that others can have a safe place to cook and eat.
+
+  Criteria I: Hosts must be able to list their space on the platform by providing details such as location, size, available facilities, and rental price.
+
+  Criteria II: Each listing must include photos of the space, a description of the amenities provided, and any specific rules or restrictions.
+
+  Criteria III: Users can search for rental spaces based on criteria such as location, size, and available dates.
+
+  Criteria IV: The platform must allow users to book a space directly from the listing with a visible 'Book Now' button.
+
+  Criteria V: Upon booking, both hosts and users receive an immediate email confirmation with rental details, including date, time, and any access instructions.
+
+  Criteria VI: The system must provide a secure payment gateway for users to pay for the rental space directly through the platform.
+
+Feature 10:
+  As a User, I want to follow my favorite hosts and organizations so that I receive updates about their upcoming events and activities.
+
+  Criteria I: Users must be able to browse profiles of hosts and organizations through the platform.
+
+  Criteria II: Each host and organization profile should have a 'Follow' button that users can click to start following.
+
+  Criteria III: Upon clicking the 'Follow' button, the system should immediately update to show that the user is following the host or organization.
+
+  Criteria IV: Users should receive a confirmation notification on the platform once they successfully follow a host or organization.
+
+  Criteria V: Users who follow hosts or organizations must receive updates in their platform inbox or via email about upcoming events and activities.
+
 
 
 ## Architecture and Design
