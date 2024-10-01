@@ -132,27 +132,45 @@ Feature 6:
 Feature 7:
 
   Criteria I:
+
     Hosts can upload photos and event descriptions after an event.
+
   Criteria II:
+
     Event highlights are displayed on the Host's profile or event page.
+
   Criteria III:
+
     Users can browse past event galleries when considering whether to attend future events.
+
   Criteria IV:
+
     Photos are organized by event and include captions.
+
   Criteria V:
+
     Hosts can tag attendees in event photos, and Users are notified when they are tagged.
 
 
 Feature 8:
   Criteria I:
+
     Hosts can input and tag food allergies when creating an event.
+
   Criteria II:
+
     Users can filter events by allergy-friendly options (e.g., nut-free, gluten-free).
+
   Criteria III:
+
     Users can see clear labels for food allergies on all events and meals.
+
   Criteria IV:
+
     The system warns Users during sign-up if an event contains allergens they are allergic to (based on their profile).
+
   Criteria V:
+  
     Users can add or update their dietary restrictions in their profile at any time.
 
 
