@@ -65,6 +65,39 @@ Feature 2:
   Criteria III:
     Has an option for the host to write a short description that is no longer than 500 characters.
 
+Feature 5:
+  One feature of this app will include a news feed where hosts and users can communicate openly. All will have the ability to reply, like and re-share posts. 
+
+  Criteria I:
+    The news feed and replies will be sorted by recency of posts.
+
+  Criteria II:
+    Users will be able filter for only posts they have liked or have replied to or from users they are following.
+
+  Criteria III:
+    Users will be able to create posts linking up to 1 media file and a limited amount of text, the same restriction will apply to replies.
+
+  Criteria IV:
+    Users will be able to like posts which the total amount of likes a post has will be viewable by other users
+
+  Criteria V:
+    Users will be able to reshare posts which will then be visible to people filtering for posts from people they follow.
+
+
+
+Feature 6: 
+  One feature of this app will include channels for food categories so users and hosts can share or look at other recipes
+
+  Criteria I:
+    Recipes posted in a channel will be sortable based on either the posts popularity or its recency
+
+  Criteria II:
+    Recipes will have different fields for the user to fill out including ingredients, background, and instructions
+
+  Criteria III:
+    New channels will be able to be proposed by users which can then be approved by staff
+
+
 
 ## Architecture and Design
 
