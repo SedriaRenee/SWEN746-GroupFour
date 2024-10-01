@@ -31,7 +31,6 @@ CraveMates/Sustenance is a social platform that brings food enthusiasts together
 
 ### MVP Features
 * One feature of the app will include the ability to create and host a “potluck event” where people can sign up for different food items or parts of a recipe.
-
 * One feature of the app will allow a host to create a poll of meal preferences before they launch their event. This will allow hosts to plan a menu that everyone will enjoy.
 * One feature of the app will include the ability of a host to organize a cooking workshop. 
 * One feature of the app will allow a host to create a group for people to join where they will visit restaurants every week. This is a specific feature but hosts will be able to create groups based on their preferences as well. Users will also be able to join these groups.
@@ -41,6 +40,120 @@ CraveMates/Sustenance is a social platform that brings food enthusiasts together
 * One feature of this app will include a tagging feature. This will allow for hosts to tag allergies on events and users can add this feature onto their profile as well for transparency. 
 * One feature of this app will allow hosts to post listings on kitchens/dining spaces to rent out.
 * One feature of this app will feature a follow button so users can follow their favorite pages, groups, hosts, and etc.
+
+### Acceptance Criteria
+
+Feature 1: 
+  One feature of the app will include the ability to create and host a “potluck event” where people can sign up for different food items or parts of a recipe.
+
+  Criteria I:
+    Given that I'm a user when I log on I will see an option to register as a host.
+
+  Criteria II:
+    App displays an option for a host to create an event.
+
+  Criteria III:
+    Host will be able upload up to 6 pictures/videos to the event and a short description that is no longer than 500 characters.
+
+  Criteria IV:
+    The event will feature a news feed that can be filtered by popularity/recency.
+
+  Criteria V:
+    Will include a public list of members who joined the event.
+
+
+Feature 2:
+  One feature of the app will allow a host to create a poll of meal preferences before they launch their event. This will allow hosts to plan a menu that everyone will enjoy.
+
+  Criteria I:
+    Displays an option to create a poll.
+
+  Criteria II:
+    User will be prompted to register as host if they aren't currently one before creating poll.
+
+  Criteria III:
+    Has an option for the host to write a short description that is no longer than 500 characters.
+
+Feature 3:
+  One feature of the app will include the ability of a host to organize a cooking workshop. 
+
+  Criteria I:
+    Shows all available event channels where events are being hosted.
+
+  Criteria II:
+    User can select which events they would want to participate in and register for the events selected. Only stopping them if there is an overlap in terms of time.
+
+  Criteria III:
+    User can see the location and starting time of the event. Alongside any tools or ingredients they would need to bring with them.
+
+Feature 4:
+  One feature of the app will allow a host to create a group for people to join where they will visit restaurants every week. This is a specific feature but hosts will be able to create groups based on their preferences as well. Users will also be able to join these groups.
+
+  Criteria I:
+    Host can select which Users and Resturants that coencide with User and Host preferences along with date and time of meeting
+
+  Criteria II:
+    Host can modify event details, such as the restaurant of choice, members that are attending, along with time and date of the event.
+  
+  Criteria III:
+    User can view the details of an event made by the Host and register for the same event if they have similar interests. Users can also tell the Host of any potential allergies they may have.
+Feature 5:
+  One feature of this app will include a news feed where hosts and users can communicate openly. All will have the ability to reply, like and re-share posts. 
+
+  Criteria I:
+    The news feed and replies will be sorted by recency of posts.
+
+  Criteria II:
+    Users will be able filter for only posts they have liked or have replied to or from users they are following.
+
+  Criteria III:
+    Users will be able to create posts linking up to 1 media file and a limited amount of text, the same restriction will apply to replies.
+
+  Criteria IV:
+    Users will be able to like posts which the total amount of likes a post has will be viewable by other users
+
+  Criteria V:
+    Users will be able to reshare posts which will then be visible to people filtering for posts from people they follow.
+
+
+
+Feature 6: 
+  One feature of this app will include channels for food categories so users and hosts can share or look at other recipes
+
+  Criteria I:
+    Recipes posted in a channel will be sortable based on either the posts popularity or its recency
+
+  Criteria II:
+    Recipes will have different fields for the user to fill out including ingredients, background, and instructions
+
+  Criteria III:
+    New channels will be able to be proposed by users which can then be approved by staff
+
+Feature 7:
+
+  Criteria I:
+    Hosts can upload photos and event descriptions after an event.
+  Criteria II:
+    Event highlights are displayed on the Host's profile or event page.
+  Criteria III:
+    Users can browse past event galleries when considering whether to attend future events.
+  Criteria IV:
+    Photos are organized by event and include captions.
+  Criteria V:
+    Hosts can tag attendees in event photos, and Users are notified when they are tagged.
+
+
+Feature 8:
+  Criteria I:
+    Hosts can input and tag food allergies when creating an event.
+  Criteria II:
+    Users can filter events by allergy-friendly options (e.g., nut-free, gluten-free).
+  Criteria III:
+    Users can see clear labels for food allergies on all events and meals.
+  Criteria IV:
+    The system warns Users during sign-up if an event contains allergens they are allergic to (based on their profile).
+  Criteria V:
+    Users can add or update their dietary restrictions in their profile at any time.
 
 
 
@@ -54,8 +167,7 @@ This section describes the application architecture.
 
 
 ### Use Cases
-> _Place a use case diagram here._
-> _Describe your use case diagram._
+[>[https://app.diagrams.net/#G136MkRWYkHQoQGQWcl4y6KXNJhaMpu6eY#%7B%22pageId%22%3A%22F8eIRIGPohrmfdewEcGW%22%7D](https://drive.google.com/file/d/136MkRWYkHQoQGQWcl4y6KXNJhaMpu6eY/view?usp=sharing)](https://drive.google.com/file/d/136MkRWYkHQoQGQWcl4y6KXNJhaMpu6eY/view?usp=sharing)
 
 
 ### Class Diagram
