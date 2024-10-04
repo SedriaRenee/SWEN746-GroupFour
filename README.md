@@ -197,6 +197,9 @@ This section describes the application architecture.
 ### Use Cases
 [>[https://app.diagrams.net/#G136MkRWYkHQoQGQWcl4y6KXNJhaMpu6eY#%7B%22pageId%22%3A%22F8eIRIGPohrmfdewEcGW%22%7D](https://drive.google.com/file/d/136MkRWYkHQoQGQWcl4y6KXNJhaMpu6eY/view?usp=sharing)](https://drive.google.com/file/d/136MkRWYkHQoQGQWcl4y6KXNJhaMpu6eY/view?usp=sharing)
 
+### Domain Model
+https://drive.google.com/file/d/1bzHemqDtCy4JB4jsuLDE4F8ABgXerbe_/view?usp=sharing
+
 
 ### Class Diagram
 > _Place a class diagram here._
