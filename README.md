@@ -200,7 +200,11 @@ This section describes the application architecture.
 ### Domain Model
 https://drive.google.com/file/d/1bzHemqDtCy4JB4jsuLDE4F8ABgXerbe_/view?usp=sharing
 
+### Sequence Diagram
+https://app.diagrams.net/#G1YT0xIK81bcvwysMcXhDiFJb0tk1THE73#%7B%22pageId%22%3A%22ShmrYyQRlPPg4B9SsioZ%22%7D
 
 ### Class Diagram
 > _Place a class diagram here._
 > _Describe your class diagram._
+
+
