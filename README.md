@@ -190,8 +190,8 @@ Feature 10:
 This section describes the application architecture.
 
 ### Software Architecture
-> _Place a architectural diagram here._
-> _Describe your software architecture._
+Client-Server
+https://drive.google.com/file/d/1AB5WjstdRSIT5p8r0J1nPFobZM_2X9jO/view?usp=sharing
 
 
 ### Use Cases
