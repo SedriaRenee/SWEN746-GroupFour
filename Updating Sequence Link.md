@@ -202,6 +202,7 @@ https://drive.google.com/file/d/1AB5WjstdRSIT5p8r0J1nPFobZM_2X9jO/view?usp=shari
 
 ### Sequence Diagram
 https://app.diagrams.net/#G1YT0xIK81bcvwysMcXhDiFJb0tk1THE73#%7B%22pageId%22%3A%22ShmrYyQRlPPg4B9SsioZ%22%7D
+https://drive.google.com/file/d/1YT0xIK81bcvwysMcXhDiFJb0tk1THE73/view?usp=sharing
 
 ### Class Diagram
 > _Place a class diagram here._
