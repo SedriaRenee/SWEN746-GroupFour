@@ -205,7 +205,7 @@ https://app.diagrams.net/#G1YT0xIK81bcvwysMcXhDiFJb0tk1THE73#%7B%22pageId%22%3A%
 https://drive.google.com/file/d/1YT0xIK81bcvwysMcXhDiFJb0tk1THE73/view?usp=sharing
 
 ### Class Diagram
-> _Place a class diagram here._
-> _Describe your class diagram._
+https://drive.google.com/file/d/1IOUmy6L-ris5MdbeLZ-2XgavSlhCtZ2R/view?usp=sharing
+https://app.diagrams.net/#G1IOUmy6L-ris5MdbeLZ-2XgavSlhCtZ2R#%7B%22pageId%22%3A%22sXF_qgFIhSkNeDmUX0QF%22%7D
 
 
