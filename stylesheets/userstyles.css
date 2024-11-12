@@ -1,0 +1,24 @@
+/* CSS HEX */
+/* --giants-orange: #f46036ff;
+--jet: #363635ff;
+--naples-yellow: #f3d34aff;
+--slate-blue: #7067cfff;
+--verdigris: #00afb5ff; */
+
+header{
+
+}
+
+body{
+    background-color: #F46036FF;
+}
+
+.info-box
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
