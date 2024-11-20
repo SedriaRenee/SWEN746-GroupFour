@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create Group Event - Crave Mates</title>
+  </head>
+  <body>
+    <h1>Create a Group Event</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Create Event</button>
+    </form>
+  </body>
+</html>

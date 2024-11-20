@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'backend', #adding the new app to settings per tutorial I watched
-    'bootstrap5',
+    'django_bootstrap5',
     'debug_toolbar',
 ]
 

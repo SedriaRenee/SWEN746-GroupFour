@@ -21,4 +21,5 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('backend.urls')),
+    # path('events/', include('backend.urls')),  # Include URLs for events app
 ] + debug_toolbar_urls() #Adds debugging to browser for help to debug there

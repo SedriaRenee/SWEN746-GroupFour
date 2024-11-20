@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Comment
+from .models import Post, Comment, Event, Workshop
 from django.contrib.auth.models import User
 
 class UsernameChangeForm(forms.ModelForm):
@@ -16,3 +16,16 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['content']
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ['title', 'description', 'date', 'location', 'food_type', 'allergy_friendly', 'preferences', 'group_type']
+        widgets = {
+            'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        }
+
+class WorkshopForm(forms.ModelForm):
+    class Meta:
+        model = Workshop
+        fields = ['name', 'time', 'tags', 'description', 'photos', 'video_url', 'eventChannel']

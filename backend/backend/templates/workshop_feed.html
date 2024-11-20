@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Workshops</h2>
+{% for workshop in workshops %}
+<div class="card mb-3">
+  <div class="card-body">
+    <h3>{{ workshop.name }}</h3>
+    <p>{{ workshop.description }}</p>
+    <p>Hosted by: {{ workshop.host.username }}</p>
+    {% if workshop.photos %}
+    <img
+      src="{{ workshop.photos.url }}"
+      alt="{{ workshop.name }}"
+      class="img-fluid"
+    />
+    {% endif %} {% if workshop.video_url %}
+    <iframe
+      src="{{ workshop.video_url }}"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    {% endif %}
+    <p>Event Date: {{ workshop.time }}</p>
+  </div>
+</div>
+{% endfor %} {% endblock %}
