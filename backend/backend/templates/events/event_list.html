@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Crave Mates Events</title>
+  </head>
+  <body>
+    <h1>Upcoming Events on Crave Mates</h1>
+    <ul>
+      {% for event in events %}
+      <li>
+        <h2>{{ event.title }}</h2>
+        <p>{{ event.description }}</p>
+        <p>Date: {{ event.date }}</p>
+        <p>Location: {{ event.location }}</p>
+        <p>Hosted by: {{ event.host_type }}</p>
+        <p>Food Type: {{ event.food_type }}</p>
+        <p>Allergy Friendly: {{ event.allergy_friendly }}</p>
+        <p>Preferences: {{ event.preferences }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

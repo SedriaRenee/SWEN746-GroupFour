@@ -5,10 +5,15 @@ from django.contrib.auth.models import User
 
 class Group(models.Model):
     name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 
 
 class Channel(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class Newsfeed(models.Model):
     pass
@@ -22,6 +27,9 @@ class User(models.Model):
     newsfeed = models.ForeignKey(Newsfeed, on_delete=models.CASCADE)
     tags = models.CharField(max_length=100)
     hostStatus = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.username
 
 class groupOwnership(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
@@ -54,22 +62,36 @@ class Rental(models.Model):
     description = models.TextField()
     host = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class Event(models.Model):
-    name = models.CharField(max_length=100)
-    time = models.DateTimeField()
-    tags = models.CharField(max_length=100)
-    host = models.ForeignKey(User, on_delete=models.CASCADE)
-    description = models.TextField()
-    eventChannel = models.ForeignKey(Channel, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
-class eventMembership(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+class Event(models.Model):
+    title = models.CharField(max_length=100, default='Untitled Event')
+    description = models.TextField()
+    date = models.DateTimeField()
+    location = models.CharField(max_length=100)
+    host_type = models.CharField(max_length=50, default="Host")  # e.g., "Host", "Organization"
+    food_type = models.CharField(max_length=50, default="Unknown")  # e.g., "Thai", "American"
+    allergy_friendly = models.CharField(max_length=100, default="None")  # e.g., "Peanut-free, Soy-free"
+    preferences = models.CharField(max_length=100, default="Any")  # e.g., "Female only"
+    group_type = models.CharField(max_length=100, blank=True, null=True)  # e.g., "Restaurant Hop"
+
+    def __str__(self):
+        return self.title
 
 class rentalReservation(models.Model):
     rental = models.ForeignKey(Rental, on_delete=models.CASCADE)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     timeslot = models.DateTimeField()
+
+    def __str__(self):
+        return self.rental
+
+    
+class eventMembership(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
 
 ##New ones that need to be created
@@ -80,7 +102,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.content[:20]}..."
+        return f"{self.user.username} - {self.content}"
 
 class Comment(models.Model):
     content = models.TextField()
@@ -90,11 +112,28 @@ class Comment(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.content[:20]}..."
+        return f"{self.user.username} - {self.content}"
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
 
     def __str__(self):
-        return f"{self.user.username} liked {self.post.content[:20]}..."
+        return f"{self.user.username} liked {self.post.content}"
+    
+
+
+    
+
+class Workshop(models.Model):
+    name = models.CharField(max_length=100)
+    time = models.DateTimeField()
+    tags = models.CharField(max_length=100)
+    host = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField()
+    eventChannel = models.ForeignKey(Channel, on_delete=models.CASCADE)
+    photos = models.ImageField(upload_to='workshop_photos/', blank=True, null=True)
+    video_url = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
