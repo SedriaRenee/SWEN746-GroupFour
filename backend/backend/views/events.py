@@ -8,7 +8,7 @@ from backend.forms import EventForm
 
 # List all events
 def event_list(request):
-    events = Event.objects.all().order_by('date')  # Fetch events ordered by date
+    events = Event.objects.all().order_by('date')  
     return render(request, 'events/event_list.html', {'events': events})
 
 

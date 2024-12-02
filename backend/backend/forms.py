@@ -1,6 +1,7 @@
 from django import forms
-from .models import Post, Comment, Event, Workshop
-from django.contrib.auth.models import User
+
+from .models import Post, Comment, Event, Workshop, User
+# from django.contrib.auth.models import User
 
 class UsernameChangeForm(forms.ModelForm):
     class Meta:
@@ -29,3 +30,24 @@ class WorkshopForm(forms.ModelForm):
     class Meta:
         model = Workshop
         fields = ['name', 'time', 'tags', 'description', 'photos', 'video_url', 'eventChannel']
+
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            'fullname', 
+            'bio', 
+            'profile_picture',
+            'username', 
+            'email', 
+            'phoneNumber', 
+            'tags'
+        ]
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['content', 'image']
