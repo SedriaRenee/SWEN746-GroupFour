@@ -1,4 +1,5 @@
-
+import json
+import logging
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
@@ -8,31 +9,48 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from backend.forms import UsernameChangeForm
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework import status
 
-
-# Signup View
+# API Signup View
+@api_view(['POST'])
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('feed')
-    else:
-        form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+        try:
+            data = json.loads(request.body)
+            username = data['username']
+            password = data['password']
+            password2 = data['password2']
 
-# Login View
+            if password != password2:
+                return JsonResponse({'error': 'Passwords do not match'}, status=400)
+
+            if User.objects.filter(username=username).exists():
+                return JsonResponse({'error': 'Username already exists'}, status=400)
+
+            user = User.objects.create_user(username=username, password=password)
+            return JsonResponse({'message': 'User created successfully'}, status=201)
+
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+   
+# API Login View
+@api_view(['POST'])
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+        form = AuthenticationForm(data=request.data)
         if form.is_valid():
             user = form.get_user()
-            login(request, user)
-            return redirect('feed')
-    else:
-        form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
+            login(request, user)  
+
+            return JsonResponse({'message': 'Login successful', 'user': user.username}, status=200)
+        else:
+            return JsonResponse({'error': 'Invalid credentials'}, status=400)
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
 
 # Logout View
 @login_required

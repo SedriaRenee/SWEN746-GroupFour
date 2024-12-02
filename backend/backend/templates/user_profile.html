@@ -1,39 +1,86 @@
-{% extends 'base.html' %} {% block content %}
-<div class="row">
-  <div class="col-md-6">
-    <h2>{{ profile_user.username }}'s Profile</h2>
-    {% if request.user == profile_user %}
-    <p>
-      <a href="{% url 'change_username' %}">Change Username</a>
-    </p>
-    {% endif %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ profile_user.username }}'s Profile</title>
+  </head>
+  <body>
+    <!-- Profile Information -->
+    <div class="profile-info">
+      <h1>{{ profile_user.username }}</h1>
+      <img
+        src="{{ profile_user.profile_picture.url }}"
+        alt="{{ profile_user.username }}'s profile picture"
+      />
+      <p>{{ profile_user.bio }}</p>
+    </div>
 
-    <h4>Posts</h4>
-    {% for post in posts %}
-    <div class="card mb-3">
-      <div class="card-body">
-        <p class="card-text">{{ post.content }}</p>
-        <p class="card-text">Posted on {{ post.created_at }}</p>
+    <hr />
+
+    <!-- Groups Section -->
+    <div class="groups">
+      <h2>Groups</h2>
+      {% for group in groups %}
+      <div class="group">
+        <p><strong>{{ group.name }}</strong></p>
+        <p>{{ group.description }}</p>
       </div>
+      <hr />
+      {% empty %}
+      <p>This user is not a member of any groups.</p>
+      {% endfor %}
     </div>
-    {% empty %}
-    <p>No posts yet.</p>
-    {% endfor %}
-  </div>
-  <div class="col-md-6">
-    <h4>Liked Posts</h4>
-    {% for like in likes %}
-    <div class="card mb-3">
-      <div class="card-body">
-        <p class="card-text">{{ like.post.content }}</p>
-        <p class="card-text">
-          Posted by: {{ like.post.user.username }} on {{ like.post.created_at }}
+
+    <hr />
+
+    <!-- Channels Section -->
+    <div class="channels">
+      <h2>Channels</h2>
+      {% for channel in channels %}
+      <div class="channel">
+        <p><strong>{{ channel.name }}</strong></p>
+        <p>{{ channel.description }}</p>
+      </div>
+      <hr />
+      {% empty %}
+      <p>This user does not follow any channels.</p>
+      {% endfor %}
+    </div>
+
+    <hr />
+
+    <!-- Posts Section -->
+    <div class="posts">
+      <h2>Posts</h2>
+      {% for post in posts %}
+      <div class="post">
+        <p><strong>{{ post.title }}</strong></p>
+        <p>{{ post.content }}</p>
+        <p><small>Posted on {{ post.created_at }}</small></p>
+      </div>
+      <hr />
+      {% empty %}
+      <p>This user hasn't posted anything yet.</p>
+      {% endfor %}
+    </div>
+
+    <hr />
+
+    <!-- Liked Posts Section -->
+    <div class="liked-posts">
+      <h2>Liked Posts</h2>
+      {% for like in likes %}
+      <div class="liked-post">
+        <p>
+          <strong>{{ like.post.title }}</strong> by {{ like.post.user.username
+          }}
         </p>
+        <p>{{ like.post.content }}</p>
+        <p><small>Posted on {{ like.post.created_at }}</small></p>
       </div>
+      <hr />
+      {% empty %}
+      <p>This user hasn't liked any posts yet.</p>
+      {% endfor %}
     </div>
-    {% empty %}
-    <p>No liked posts yet.</p>
-    {% endfor %}
-  </div>
-</div>
-{% endblock %}
+  </body>
+</html>

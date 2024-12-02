@@ -1,9 +1,11 @@
 from django.urls import path, re_path, include
 from django.shortcuts import redirect
 
+from .views.edit_profile import edit_profile
+
 from .views.events import create_group_event, event_list
 from .views.post_views import feed
-from .views.profile_views import guest_profile, user_profile
+from .views.profile_views import user_profile
 from .views.search_views import search_users
 from .views.posts import comment_create, comment_delete, like, post_create, post_delete, post_detail, post_edit, post_list
 from .views.auth import signup, login_view, logout_view, password_change, change_username
@@ -18,7 +20,8 @@ urlpatterns = [
     # Signup Page
     path('signup/', signup, name='signup'),
     # Login
-    path('', login_view, name='login'),
+    # path('', login_view, name='login'),
+    path('login/', login_view, name='login'),
     # Logout
     path('logout/', logout_view, name='logout'),
     # Feed Page
@@ -38,8 +41,8 @@ urlpatterns = [
     path('posts/<int:post_id>/edit/', post_edit, name='post_edit'),
     # Redirecting to Latest Username
     re_path(r'^profile/(?!change-username/)(?P<username>\w+)/$', user_profile, name='user_profile'),
-    # For fetching user the username on posts
-    path('guest/profile/<str:username>/', guest_profile, name='guest_profile'),
+    # # For fetching user the username on posts
+    # path('guest/profile/<str:username>/', guest_profile, name='guest_profile'),
     # Change Username
     path('profile/change-username/', change_username, name='change_username'),
         # Password Change View
@@ -50,4 +53,9 @@ urlpatterns = [
     path('create-group-event/', create_group_event, name='create_group_event'),
     path('workshop/feed/', workshop_feed, name='workshop_feed'),
     path('workshops/', include('backend.urls_workshop')),
+    path('profile/<str:username>/', user_profile, name='user_profile'),
+    path('profile/edit/', edit_profile, name='edit_profile'),
+    path('post/create/', post_create, name='post_create'),
+
+    
 ]
