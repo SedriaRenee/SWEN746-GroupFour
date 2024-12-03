@@ -35,17 +35,19 @@ const LoginPage = () => {
 
     return (
         <div className="login-page">
-            <h1 className="app-name">Cravemates</h1> 
+            <h1 className="app-name">Crave-Mates</h1> 
             <div className="login-container">
                 <h2 className="login-title">Login</h2>
                 <form onSubmit={handleSubmit} className="login-form">
                     <div>
                         <label>Username</label>
                         <input
+                            id="usernameBox"
                             type="text"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
+                        
                         />
                     </div>
                     <div>
@@ -61,7 +63,7 @@ const LoginPage = () => {
                     <button type="submit">Login</button>
                 </form>
                 <p className="signup-link">
-                    Don't have an account? <a href="/signup">Signup</a>
+                    Don&apos;t have an account? <a href="/signup">Signup</a>
                 </p>
             </div>
         </div>

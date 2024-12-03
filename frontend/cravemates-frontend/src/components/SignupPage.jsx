@@ -54,7 +54,7 @@ const SignupPage = () => {
 
   return (
     <div className="signup-page">
-      <h1 className="signup-title">CraveMates</h1>
+      <h1 className="signup-title">Crave-Mates</h1>
       <div className="signup-container">
         <h2 className="signup-header">Sign Up</h2>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
