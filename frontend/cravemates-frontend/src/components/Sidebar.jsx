@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '..css.sidebar.css'; 
+import '../css/signup.css'; 
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
