@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from backend.models import Event
@@ -8,8 +8,18 @@ from backend.forms import EventForm
 
 # List all events
 def event_list(request):
-    events = Event.objects.all().order_by('date')  
-    return render(request, 'events/event_list.html', {'events': events})
+    sort_by = request.GET.get('sort_by', 'date')  # Default to 'date' if no sort parameter is provided
+
+    if sort_by == 'date':
+        events = Event.objects.all().order_by('date')  # Adjust according to your model field
+    elif sort_by == 'host_type':
+        events = Event.objects.all().order_by('host_type')  # Adjust according to your model field
+    else:
+        events = Event.objects.all()  # Default to all events if the sort is unknown
+
+    # Convert events to a dictionary format suitable for JSON response
+    events_data = list(events.values())  # You can specify fields like `id`, `name`, `date`, etc.
+    return JsonResponse(events_data, safe=False)
 
 
 # View a specific event

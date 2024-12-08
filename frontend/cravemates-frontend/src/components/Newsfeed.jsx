@@ -1,69 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import Post from "./Post";
+import { CircularProgress, Box, Typography, Card, CardContent, CardHeader } from "@mui/material";
 
 const Newsfeed = () => {
   const [posts, setPosts] = useState([]);
-  const [postContent, setPostContent] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
- 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch('/api/posts');
-      const data = await response.json();
-      setPosts(data);
-    };
-
-    fetchPosts();
+    fetch("http://localhost:8000")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch posts");
+        }
+        return response.json();
+      })
+      .then((data) => setPosts(data))
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
   }, []);
 
-  const handlePostSubmit = (e) => {
-    e.preventDefault();
-   
-    const newPost = {
-      content: postContent,
-      user: 'current-user', 
-    };
+  if (loading) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
-
-    setPosts([newPost, ...posts]);
-    setPostContent('');
-  };
+  if (error) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
+        <Typography variant="h6" color="error">
+          Error: {error}
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
-    <div className="newsfeed">
-      <div className="header">
-        <input
-          type="text"
-          placeholder="Search posts..."
-          className="search-bar"
-        />
-        <Link to="/private-messages">
-          <button className="private-messages">Private Messages</button>
-        </Link>
-      </div>
-
-      {/* Post creation area */}
-      <form onSubmit={handlePostSubmit}>
-        <textarea
-          value={postContent}
-          onChange={(e) => setPostContent(e.target.value)}
-          placeholder="What's on your mind?"
-        />
-        <button type="submit">Post</button>
-      </form>
-
-      {/* Display Posts */}
-      <div className="post-list">
-        {posts.map((post) => (
-          <div key={post.id} className="post">
-            <p>{post.user}</p>
-            <p>{post.content}</p>
-            <span>{new Date(post.created_at).toLocaleString()}</span>
-            {/* Display comments, likes, etc. */}
-          </div>
-        ))}
-      </div>
-    </div>
+    <Box sx={{ padding: 4 }}>
+      {posts.length === 0 ? (
+        <Typography variant="h6" color="textSecondary">
+          No posts available.
+        </Typography>
+      ) : (
+        posts.map((post) => (
+          <Card key={post.id} sx={{ marginBottom: 2 }}>
+            <CardHeader title={post.user} subheader={post.timestamp} />
+            <CardContent>
+              <Post post={post} />
+            </CardContent>
+          </Card>
+        ))
+      )}
+    </Box>
   );
 };
 
