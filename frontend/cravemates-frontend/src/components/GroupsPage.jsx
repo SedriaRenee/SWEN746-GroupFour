@@ -11,7 +11,6 @@ const GroupPage = () => {
   return (
     <Box sx={{ backgroundColor: themeMode === "dark" ? "#333" : "#fff" }}>
       <Header /> {/* Add header component */}
-      
       <Box
         sx={{
           display: "flex",
@@ -20,24 +19,23 @@ const GroupPage = () => {
           justifyContent: "center",
           minHeight: "calc(100vh - 100px)", // Adjust for header/footer
           padding: 2,
-        }}
-      >
-        <Typography variant="h4" gutterBottom>
+        }}>
+        <Typography variant='h4' gutterBottom>
           Groups Page is Under Construction
         </Typography>
-        <Box sx={{ fontSize: "5rem", display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{ fontSize: "5rem", display: "flex", justifyContent: "center" }}>
           <AiOutlineBuild style={{ margin: "0 10px" }} />
           <AiOutlineWarning style={{ margin: "0 10px" }} />
         </Box>
-        <Typography variant="body1" sx={{ marginTop: 2 }}>
+        <Typography variant='body1' sx={{ marginTop: 2 }}>
           We're working hard to bring this page to life. Please check back soon!
         </Typography>
       </Box>
-
-      <FooterBar currentPage="groups" /> {/* Add Footer, set current page as 'groups' */}
+      <FooterBar currentPage='groups' />{" "}
+      {/* Add Footer, set current page as 'groups' */}
     </Box>
   );
 };
 
 export default GroupPage;
-

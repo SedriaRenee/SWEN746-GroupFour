@@ -9,9 +9,12 @@ const ChannelsPage = () => {
   const { themeMode } = useTheme(); // Get the theme mode (dark or light)
 
   return (
-    <Box sx={{ backgroundColor: themeMode === "dark" ? "#333" : "#fff", minHeight: "100vh" }}>
+    <Box
+      sx={{
+        backgroundColor: themeMode === "dark" ? "#333" : "#fff",
+        minHeight: "100vh",
+      }}>
       <Header /> {/* Add header component */}
-      
       <Box
         sx={{
           display: "flex",
@@ -20,21 +23,20 @@ const ChannelsPage = () => {
           justifyContent: "center",
           minHeight: "calc(100vh - 100px)", // Adjust for header/footer
           padding: 2,
-        }}
-      >
-        <Typography variant="h4" gutterBottom>
+        }}>
+        <Typography variant='h4' gutterBottom>
           Channels Page is Under Construction
         </Typography>
-        <Box sx={{ fontSize: "5rem", display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{ fontSize: "5rem", display: "flex", justifyContent: "center" }}>
           <AiOutlineBuild style={{ margin: "0 10px" }} />
           <AiOutlineWarning style={{ margin: "0 10px" }} />
         </Box>
-        <Typography variant="body1" sx={{ marginTop: 2 }}>
+        <Typography variant='body1' sx={{ marginTop: 2 }}>
           We're working hard to bring this page to life. Please check back soon!
         </Typography>
       </Box>
-
-      <FooterBar currentPage="channels" /> {/* Add Footer */}
+      <FooterBar currentPage='channels' /> {/* Add Footer */}
     </Box>
   );
 };

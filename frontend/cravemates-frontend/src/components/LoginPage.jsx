@@ -1,6 +1,20 @@
 import React, { useState } from "react";
-import {Box, Button, TextField, Typography, Stack, Divider, CssBaseline, FormControl, FormLabel,
-  Link, IconButton, Dialog, DialogActions, DialogContent, DialogTitle,
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  Stack,
+  Divider,
+  CssBaseline,
+  FormControl,
+  FormLabel,
+  Link,
+  IconButton,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
 } from "@mui/material";
 import { WbSunny, Brightness3 } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -40,7 +54,10 @@ const LoginPage = () => {
   const handleForgotPasswordSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/forgot-password", { email });
+      const response = await axios.post(
+        "http://localhost:8000/forgot-password",
+        { email }
+      );
       if (response.status === 200) {
         alert("Password reset link sent to your email.");
         setOpenDialog(false);
@@ -69,11 +86,11 @@ const LoginPage = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: themeMode === "light"
-            ? "linear-gradient(to bottom right, #dd6031, #eabe7c)"
-            : "#333",
-        }}
-      >
+          background:
+            themeMode === "light"
+              ? "linear-gradient(to bottom right, #dd6031, #eabe7c)"
+              : "#333",
+        }}>
         {/* Logo or Title */}
         <Box
           sx={{
@@ -81,15 +98,13 @@ const LoginPage = () => {
             textAlign: "center",
             padding: "16px",
             marginBottom: "20px",
-          }}
-        >
+          }}>
           <Typography
-            variant="h4"
+            variant='h4'
             sx={{
               color: themeMode === "light" ? "#fff" : "#eabe7c",
               fontWeight: 700,
-            }}
-          >
+            }}>
             Crave-Mates
           </Typography>
         </Box>
@@ -110,57 +125,55 @@ const LoginPage = () => {
             [theme.breakpoints.up("md")]: {
               maxWidth: "400px",
             },
-          }}
-        >
+          }}>
           {/* Theme Toggle Button */}
           <Box sx={{ position: "absolute", top: 16, right: 16 }}>
-            <IconButton onClick={toggleTheme} color="primary">
+            <IconButton onClick={toggleTheme} color='primary'>
               {themeMode === "light" ? <Brightness3 /> : <WbSunny />}
             </IconButton>
           </Box>
 
           {/* Form Header */}
-          <Typography variant="h4" align="center">
+          <Typography variant='h4' align='center'>
             Login
           </Typography>
 
           {/* Login Form */}
           <form onSubmit={handleSubmit}>
-            <FormControl fullWidth margin="normal">
-              <FormLabel htmlFor="username">Username</FormLabel>
+            <FormControl fullWidth margin='normal'>
+              <FormLabel htmlFor='username'>Username</FormLabel>
               <TextField
-                id="username"
-                name="username"
-                type="text"
+                id='username'
+                name='username'
+                type='text'
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                variant="outlined"
+                variant='outlined'
                 fullWidth
               />
             </FormControl>
-            <FormControl fullWidth margin="normal">
-              <FormLabel htmlFor="password">Password</FormLabel>
+            <FormControl fullWidth margin='normal'>
+              <FormLabel htmlFor='password'>Password</FormLabel>
               <TextField
-                id="password"
-                name="password"
-                type="password"
+                id='password'
+                name='password'
+                type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                variant="outlined"
+                variant='outlined'
                 fullWidth
                 error={!!error}
                 helperText={error || ""}
               />
             </FormControl>
             <Button
-              type="submit"
+              type='submit'
               fullWidth
-              variant="contained"
+              variant='contained'
               sx={{ marginTop: 2 }}
-              disabled={loading}
-            >
+              disabled={loading}>
               {loading ? "Logging in..." : "Login"}
             </Button>
           </form>
@@ -171,7 +184,7 @@ const LoginPage = () => {
           <Box sx={{ textAlign: "center" }}>
             <Typography>
               Don't have an account?{" "}
-              <Link href="/signup" sx={{ color: "primary.main" }}>
+              <Link href='/signup' sx={{ color: "primary.main" }}>
                 Sign up
               </Link>
             </Typography>
@@ -182,8 +195,7 @@ const LoginPage = () => {
                   color: "primary.main",
                   cursor: "pointer",
                   textDecoration: "underline",
-                }}
-              >
+                }}>
                 Forgot password?
               </Link>
             </Typography>
@@ -196,22 +208,22 @@ const LoginPage = () => {
           <DialogContent>
             <form onSubmit={handleForgotPasswordSubmit}>
               <TextField
-                label="Enter your email address"
+                label='Enter your email address'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 fullWidth
-                variant="outlined"
-                margin="normal"
-                type="email"
+                variant='outlined'
+                margin='normal'
+                type='email'
                 required
                 error={!!dialogError}
                 helperText={dialogError || ""}
               />
               <DialogActions>
-                <Button onClick={() => setOpenDialog(false)} color="primary">
+                <Button onClick={() => setOpenDialog(false)} color='primary'>
                   Cancel
                 </Button>
-                <Button type="submit" color="primary">
+                <Button type='submit' color='primary'>
                   Send Reset Link
                 </Button>
               </DialogActions>

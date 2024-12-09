@@ -12,7 +12,7 @@ const RentalsPage = () => {
   // Fetch rentals from the Django backend
   useEffect(() => {
     const fetchRentals = async () => {
-      const response = await fetch("/rentals/");  // Adjust URL if using an API endpoint
+      const response = await fetch("/rentals/"); // Adjust URL if using an API endpoint
       const data = await response.json();
       setRentals(data);
     };
@@ -23,7 +23,6 @@ const RentalsPage = () => {
   return (
     <Box sx={{ backgroundColor: themeMode === "dark" ? "#333" : "#fff" }}>
       <Header /> {/* Add header component */}
-      
       <Box
         sx={{
           display: "flex",
@@ -32,21 +31,21 @@ const RentalsPage = () => {
           justifyContent: "center",
           minHeight: "calc(100vh - 100px)", // Adjust for header/footer
           padding: 2,
-        }}
-      >
-        <Typography variant="h4" gutterBottom>
+        }}>
+        <Typography variant='h4' gutterBottom>
           Rentals Page is Under Construction
         </Typography>
-        <Box sx={{ fontSize: "5rem", display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{ fontSize: "5rem", display: "flex", justifyContent: "center" }}>
           <AiOutlineBuild style={{ margin: "0 10px" }} />
           <AiOutlineWarning style={{ margin: "0 10px" }} />
         </Box>
-        <Typography variant="body1" sx={{ marginTop: 2 }}>
+        <Typography variant='body1' sx={{ marginTop: 2 }}>
           We're working hard to bring this page to life. Please check back soon!
         </Typography>
       </Box>
-
-      <FooterBar currentPage="rentals" /> {/* Add Footer, set current page as 'rentals' */}
+      <FooterBar currentPage='rentals' />{" "}
+      {/* Add Footer, set current page as 'rentals' */}
     </Box>
   );
 };

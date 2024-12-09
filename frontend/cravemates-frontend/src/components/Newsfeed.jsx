@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Post from "./Post";
-import { CircularProgress, Box, Typography, Card, CardContent, CardHeader } from "@mui/material";
+import {
+  CircularProgress,
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  CardHeader,
+} from "@mui/material";
 
 const Newsfeed = () => {
   const [posts, setPosts] = useState([]);
@@ -22,7 +29,13 @@ const Newsfeed = () => {
 
   if (loading) {
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}>
         <CircularProgress />
       </Box>
     );
@@ -30,8 +43,14 @@ const Newsfeed = () => {
 
   if (error) {
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
-        <Typography variant="h6" color="error">
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}>
+        <Typography variant='h6' color='error'>
           Error: {error}
         </Typography>
       </Box>
@@ -41,7 +60,7 @@ const Newsfeed = () => {
   return (
     <Box sx={{ padding: 4 }}>
       {posts.length === 0 ? (
-        <Typography variant="h6" color="textSecondary">
+        <Typography variant='h6' color='textSecondary'>
           No posts available.
         </Typography>
       ) : (
