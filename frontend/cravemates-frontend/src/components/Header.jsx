@@ -24,7 +24,7 @@ const Header = () => {
               color: themeMode === "light" ? "black" : "white",  // Title color based on theme
             }}
           >
-            CraveMates
+            Crave-Mates
           </Typography>
         </Box>
 

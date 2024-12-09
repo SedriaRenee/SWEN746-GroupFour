@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Box, Typography, Button, TextField, Avatar, Paper, Divider, useTheme } from '@mui/material';
-import Header from '../components/Header'; // Assuming you have a Header component
-import FooterBar from '../components/FooterBar'; // Assuming you have a FooterBar component
+import Header from '../components/Header'; 
+import FooterBar from '../components/FooterBar'; 
 
 const Profile = () => {
     const { username } = useParams();
@@ -61,7 +61,7 @@ const Profile = () => {
     }
 
     const profilePicture = profile?.profile_picture || 'http://localhost:8000/static/default_avatar.jpg';
-    const usernameDisplay = profile?.username || 'CraveMates User'; // Fallback username if not found
+    const usernameDisplay = profile?.username || 'Crave-Mates User'; // Fallback username if not found
 
     return (
         <Box sx={{ backgroundColor: theme.palette.background.default }}>
@@ -97,7 +97,7 @@ const Profile = () => {
                 </Box>
 
                 {/* Create Post Section */}
-                <Box sx={{ marginBottom: 4 }}>
+                <Box sx={{ marginBottom: 4, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                     <TextField
                         fullWidth
                         multiline
@@ -119,7 +119,13 @@ const Profile = () => {
                 </Box>
 
                 {/* Display the user's feed */}
-                <Box>
+                <Box  sx={{
+                    marginBottom: 4,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center', 
+                    textAlign: 'center', 
+    }}>
                     <Typography variant="h5" sx={{ color: theme.palette.text.primary }}>Feed</Typography>
                     {Array.isArray(feed) && feed.length > 0 ? (
                         feed.map((post) => (

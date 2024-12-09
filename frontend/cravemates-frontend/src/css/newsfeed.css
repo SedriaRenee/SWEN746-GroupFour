@@ -5,7 +5,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
-    background-color: #d9d9d9;  /* Facebook-like light gray background */
+    background-color: #ece4b7;  /* Facebook-like light gray background */
     min-height: 100vh; /* Full screen height */
   }
   
@@ -56,7 +56,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 12px;
-    color: #3b82f6; /* Primary blue color for buttons */
+    color: #3c6e71; /* Primary blue color for buttons */
   }
   
   .post-footer button {
@@ -70,7 +70,7 @@
   }
   
   .post-footer button:hover {
-    color: #2563eb; /* Slightly darker blue on hover */
+    color: #467ea4; /* Slightly darker blue on hover */
   }
   
   /* CreatePost form */
@@ -78,7 +78,7 @@
     width: 100%;
     max-width: 900px; /* Same width as the feed */
     margin-top: 30px;
-    background-color: #ffffff;
+    background-color: #d9dd92;
     padding: 16px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the create post form */

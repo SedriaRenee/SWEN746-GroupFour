@@ -11,13 +11,13 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #f0f2f5;
+  background-color: linear-gradient(to bottom right, #dd6031, #eabe7c);
   padding-bottom: 60px;
 }
 
 /* Profile container remains centered and takes up space */
 .profile-container {
-  background-color: #fff;
+  background-color: linear-gradient(to bottom right, #dd6031, #eabe7c);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -64,7 +64,7 @@ html, body {
 }
 
 .edit-btn:hover {
-  background-color: #0056b3;
+  background-color: #467ea4;
 }
 
 .profile-tabs {
@@ -77,7 +77,7 @@ html, body {
 .profile-tabs button {
   background: none;
   border: none;
-  color: #007bff;
+  color: #3c6e71;
   font-size: 16px;
   cursor: pointer;
 }
@@ -130,7 +130,7 @@ html, body {
 }
 
 .post {
-  background-color: #fff;
+  background-color: #ece4b7;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -185,5 +185,5 @@ html, body {
   text-align: center;
   margin-top: 20px;
   font-size: 18px;
-  color: #007bff;
+  color: #3c6e71;
 }
