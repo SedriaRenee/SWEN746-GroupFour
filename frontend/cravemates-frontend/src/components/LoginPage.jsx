@@ -1,66 +1,46 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
-import CssBaseline from "@mui/material/CssBaseline";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import Link from "@mui/material/Link";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
+import {Box, Button, TextField, Typography, Stack, Divider, CssBaseline, FormControl, FormLabel,
+  Link, IconButton, Dialog, DialogActions, DialogContent, DialogTitle,
+} from "@mui/material";
+import { WbSunny, Brightness3 } from "@mui/icons-material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useTheme } from "../context/ThemeContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
-import { WbSunny, Brightness3 } from "@mui/icons-material";
-import { useTheme } from "../context/ThemeContext";
-
 
 const LoginPage = () => {
+  const { themeMode, toggleTheme } = useTheme();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [openDialog, setOpenDialog] = useState(false);
   const [email, setEmail] = useState("");
   const [dialogError, setDialogError] = useState("");
-  const { themeMode, toggleTheme } = useTheme(); // Get theme state from context
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       const response = await axios.post("http://localhost:8000/login/", {
         username,
         password,
       });
-
-      if (response.status === 200) {
-        navigate("/");
-      } else {
-        setError("Invalid credentials. Please try again.");
-      }
+      if (response.status === 200) navigate("/");
+      else setError("Invalid credentials. Please try again.");
     } catch (err) {
       console.error(err);
       setError("An error occurred. Please try again later.");
     } finally {
-        setLoading(false);
-      }
+      setLoading(false);
+    }
   };
 
   const handleForgotPasswordSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post("http://localhost:8000/forgot-password", { email });
-      
       if (response.status === 200) {
         alert("Password reset link sent to your email.");
         setOpenDialog(false);
@@ -86,54 +66,79 @@ const LoginPage = () => {
           width: "100%",
           minHeight: "100vh",
           display: "flex",
-          justifyContent: "center",
+          flexDirection: "column",
           alignItems: "center",
-          background: themeMode === "light" ? "#f7f7f7" : "#333",
+          justifyContent: "center",
+          background: themeMode === "light"
+            ? "linear-gradient(to bottom right, #dd6031, #eabe7c)"
+            : "#333",
         }}
       >
+        {/* Logo or Title */}
+        <Box
+          sx={{
+            width: "100%",
+            textAlign: "center",
+            padding: "16px",
+            marginBottom: "20px",
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              color: themeMode === "light" ? "#fff" : "#eabe7c",
+              fontWeight: 700,
+            }}
+          >
+            Crave-Mates
+          </Typography>
+        </Box>
+
         <Stack
           spacing={3}
           sx={{
-            width: "100%",
+            width: "90%",
             maxWidth: "400px",
             padding: 4,
             borderRadius: 2,
             boxShadow: 3,
             backgroundColor: themeMode === "light" ? "#fff" : "#444",
+            margin: "0 auto",
+            [theme.breakpoints.up("sm")]: {
+              maxWidth: "360px",
+            },
+            [theme.breakpoints.up("md")]: {
+              maxWidth: "400px",
+            },
           }}
         >
-          {/* Theme Toggle Button at the top */}
+          {/* Theme Toggle Button */}
           <Box sx={{ position: "absolute", top: 16, right: 16 }}>
             <IconButton onClick={toggleTheme} color="primary">
               {themeMode === "light" ? <Brightness3 /> : <WbSunny />}
             </IconButton>
           </Box>
 
-          <Typography variant="h4" align="center" sx={{ marginBottom: 3 }}>
-            Cravemates
-          </Typography>
-          <Typography variant="h6" align="center" sx={{ marginBottom: 3 }}>
+          {/* Form Header */}
+          <Typography variant="h4" align="center">
             Login
           </Typography>
+
+          {/* Login Form */}
           <form onSubmit={handleSubmit}>
             <FormControl fullWidth margin="normal">
               <FormLabel htmlFor="username">Username</FormLabel>
               <TextField
-                    id="username"
-                    name="username"
-                    type="text"
-                    value={username}
-                    onChange={(e) => {
-                        setUsername(e.target.value);
-                        setError(""); // Clear error when typing
-                    }}
-                    required
-                    variant="outlined"
-                    fullWidth
-                    />
-
+                id="username"
+                name="username"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                variant="outlined"
+                fullWidth
+              />
             </FormControl>
-
             <FormControl fullWidth margin="normal">
               <FormLabel htmlFor="password">Password</FormLabel>
               <TextField
@@ -145,23 +150,24 @@ const LoginPage = () => {
                 required
                 variant="outlined"
                 fullWidth
-                color={error ? "error" : "primary"}
-                helperText={error ? error : ""}
+                error={!!error}
+                helperText={error || ""}
               />
             </FormControl>
-
             <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ marginTop: 2 }}
-                disabled={loading}
-                >
-                {loading ? "Logging in..." : "Login"}
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ marginTop: 2 }}
+              disabled={loading}
+            >
+              {loading ? "Logging in..." : "Login"}
             </Button>
           </form>
 
           <Divider>or</Divider>
+
+          {/* Links */}
           <Box sx={{ textAlign: "center" }}>
             <Typography>
               Don't have an account?{" "}
@@ -171,12 +177,12 @@ const LoginPage = () => {
             </Typography>
             <Typography sx={{ marginTop: 1 }}>
               <Link
+                onClick={() => setOpenDialog(true)}
                 sx={{
                   color: "primary.main",
                   cursor: "pointer",
                   textDecoration: "underline",
                 }}
-                onClick={() => setOpenDialog(true)}
               >
                 Forgot password?
               </Link>
@@ -198,8 +204,8 @@ const LoginPage = () => {
                 margin="normal"
                 type="email"
                 required
-                color={dialogError ? "error" : "primary"}
-                helperText={dialogError ? dialogError : ""}
+                error={!!dialogError}
+                helperText={dialogError || ""}
               />
               <DialogActions>
                 <Button onClick={() => setOpenDialog(false)} color="primary">

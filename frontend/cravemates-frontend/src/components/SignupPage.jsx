@@ -90,179 +90,191 @@ const SignupPage = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box
-        sx={{
-          width: "100%",
-          minHeight: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          background: themeMode === "light" ? "#f7f7f7" : "#333",
-        }}
-      >
-        <Stack
-          spacing={3}
-          sx={{
-            width: "100%",
-            maxWidth: "400px",
-            padding: 4,
-            borderRadius: 2,
-            boxShadow: 3,
-            backgroundColor: themeMode === "light" ? "#fff" : "#444",
+  sx={{
+    width: "100%",
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    padding: { xs: 2, sm: 4 },
+    background: themeMode === "light" ? "linear-gradient(to bottom right, #dd6031, #eabe7c)": "#333",
+  }}
+>
+  {/* Crave-Mates Heading */}
+  <Typography
+    variant="h3"
+    align="center"
+    sx={{
+      color: themeMode === "light" ? "#fff" : "#eabe7c",
+      marginBottom: 4,
+      fontWeight: "bold",
+    }}
+  >
+    Crave-Mates
+  </Typography>
+
+  {/* Signup Box */}
+  <Stack
+    spacing={3}
+    sx={{
+      width: "100%",
+      maxWidth: "400px",
+      padding: 4,
+      borderRadius: 2,
+      boxShadow: 3,
+      backgroundColor: themeMode === "light" ? "#fff" : "#444",
+      marginTop: { xs: 2, sm: 4 }, // Add some top margin
+    }}
+  >
+    {/* Theme Toggle Button */}
+    <Box sx={{ position: "absolute", top: 16, right: 16 }}>
+      <IconButton onClick={toggleTheme} color="primary">
+        {themeMode === "light" ? <Brightness3 /> : <WbSunny />}
+      </IconButton>
+    </Box>
+
+    <Typography variant="h6" align="center" sx={{ marginBottom: 3 }}>
+      Sign Up
+    </Typography>
+
+    <form onSubmit={handleSubmit}>
+      {/* Form Fields */}
+      <FormControl fullWidth margin="normal">
+        <FormLabel htmlFor="firstName">First Name</FormLabel>
+        <TextField
+          id="firstName"
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleChange}
+          required
+          variant="outlined"
+          fullWidth
+        />
+      </FormControl>
+
+      <FormControl fullWidth margin="normal">
+        <FormLabel htmlFor="lastName">Last Name</FormLabel>
+        <TextField
+          id="lastName"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+          required
+          variant="outlined"
+          fullWidth
+        />
+      </FormControl>
+
+      <FormControl fullWidth margin="normal">
+        <FormLabel htmlFor="phoneNumber">Phone Number</FormLabel>
+        <TextField
+          id="phoneNumber"
+          name="phoneNumber"
+          type="tel"
+          value={formData.phoneNumber}
+          onChange={handleChange}
+          required
+          variant="outlined"
+          fullWidth
+        />
+      </FormControl>
+
+      <FormControl fullWidth margin="normal">
+        <FormLabel htmlFor="username">Username</FormLabel>
+        <TextField
+          id="username"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+          variant="outlined"
+          fullWidth
+        />
+      </FormControl>
+
+      <FormControl fullWidth margin="normal">
+        <FormLabel htmlFor="email">Email</FormLabel>
+        <TextField
+          id="email"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          variant="outlined"
+          fullWidth
+        />
+      </FormControl>
+
+      <FormControl fullWidth margin="normal">
+        <FormLabel htmlFor="password">Password</FormLabel>
+        <TextField
+          id="password"
+          name="password"
+          type={showPassword ? "text" : "password"}
+          value={formData.password}
+          onChange={handleChange}
+          required
+          variant="outlined"
+          fullWidth
+          InputProps={{
+            endAdornment: (
+              <IconButton
+                onMouseDown={handleMouseDownPassword}
+                onMouseUp={handleMouseUpPassword}
+                onMouseLeave={handleMouseUpPassword}
+                edge="end"
+              >
+                {showPassword ? <Visibility /> : <VisibilityOff />}
+              </IconButton>
+            ),
           }}
-        >
-          {/* Theme Toggle Button */}
-          <Box sx={{ position: "absolute", top: 16, right: 16 }}>
-            <IconButton onClick={toggleTheme} color="primary">
-              {themeMode === "light" ? <Brightness3 /> : <WbSunny />}
-            </IconButton>
-          </Box>
+        />
+      </FormControl>
 
-          <Typography variant="h4" align="center" sx={{ marginBottom: 3 }}>
-            Cravemates
-          </Typography>
-          <Typography variant="h6" align="center" sx={{ marginBottom: 3 }}>
-            Sign Up
-          </Typography>
+      <FormControl fullWidth margin="normal">
+        <FormLabel htmlFor="confirmPassword">Confirm Password</FormLabel>
+        <TextField
+          id="confirmPassword"
+          name="confirmPassword"
+          type="password"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required
+          variant="outlined"
+          fullWidth
+        />
+      </FormControl>
 
-          <form onSubmit={handleSubmit}>
-            {/* First Name */}
-            <FormControl fullWidth margin="normal">
-              <FormLabel htmlFor="firstName">First Name</FormLabel>
-              <TextField
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                required
-                variant="outlined"
-                fullWidth
-              />
-            </FormControl>
+      {error && (
+        <Typography color="error" align="center" sx={{ marginTop: 2 }}>
+          {error}
+        </Typography>
+      )}
 
-            {/* Last Name */}
-            <FormControl fullWidth margin="normal">
-              <FormLabel htmlFor="lastName">Last Name</FormLabel>
-              <TextField
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                required
-                variant="outlined"
-                fullWidth
-              />
-            </FormControl>
+      <Button
+        type="submit"
+        fullWidth
+        variant="contained"
+        sx={{ marginTop: 2 }}
+        disabled={loading}
+      >
+        {loading ? "Signing Up..." : "Sign Up"}
+      </Button>
+    </form>
 
-            {/* Phone Number */}
-            <FormControl fullWidth margin="normal">
-              <FormLabel htmlFor="phoneNumber">Phone Number</FormLabel>
-              <TextField
-                id="phoneNumber"
-                name="phoneNumber"
-                type="tel"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                required
-                variant="outlined"
-                fullWidth
-              />
-            </FormControl>
-
-            {/* Username */}
-            <FormControl fullWidth margin="normal">
-              <FormLabel htmlFor="username">Username</FormLabel>
-              <TextField
-                id="username"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-                variant="outlined"
-                fullWidth
-              />
-            </FormControl>
-
-            {/* Email */}
-            <FormControl fullWidth margin="normal">
-              <FormLabel htmlFor="email">Email</FormLabel>
-              <TextField
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                variant="outlined"
-                fullWidth
-              />
-            </FormControl>
-
-            {/* Password */}
-            <FormControl fullWidth margin="normal">
-              <FormLabel htmlFor="password">Password</FormLabel>
-              <TextField
-                id="password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                value={formData.password}
-                onChange={handleChange}
-                required
-                variant="outlined"
-                fullWidth
-                InputProps={{
-                  endAdornment: (
-                    <IconButton
-                      onMouseDown={handleMouseDownPassword}
-                      onMouseUp={handleMouseUpPassword}
-                      onMouseLeave={handleMouseUpPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  ),
-                }}
-              />
-            </FormControl>
-
-            {/* Confirm Password */}
-            <FormControl fullWidth margin="normal">
-              <FormLabel htmlFor="confirmPassword">Confirm Password</FormLabel>
-              <TextField
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-                variant="outlined"
-                fullWidth
-              />
-            </FormControl>
-
-            {/* Error Message */}
-            {error && (
-              <Typography color="error" align="center" sx={{ marginTop: 2 }}>
-                {error}
-              </Typography>
-            )}
-
-            {/* Submit Button */}
-            <Button type="submit" fullWidth variant="contained" sx={{ marginTop: 2 }} disabled={loading}>
-              {loading ? "Signing Up..." : "Sign Up"}
-            </Button>
-          </form>
-
-          <Divider>or</Divider>
-          <Box sx={{ textAlign: "center" }}>
-            <Typography>
-              Already have an account?{" "}
-              <Link href="/login" sx={{ color: "primary.main" }}>
-                Login
-              </Link>
-            </Typography>
-          </Box>
-        </Stack>
-      </Box>
+    <Divider>or</Divider>
+    <Box sx={{ textAlign: "center" }}>
+      <Typography>
+        Already have an account?{" "}
+        <Link href="/login" sx={{ color: "primary.main" }}>
+          Login
+        </Link>
+      </Typography>
+    </Box>
+  </Stack>
+</Box>
     </ThemeProvider>
   );
 };

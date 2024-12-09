@@ -55,7 +55,7 @@ html, body {
 
 .edit-btn {
   margin-top: 10px;
-  background-color: #007bff;
+  background-color: #eabe7c;
   color: #fff;
   padding: 8px 16px;
   border-radius: 5px;
@@ -104,7 +104,7 @@ html, body {
 
 .create-post .post-submit {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #eabe7c;
   color: #fff;
   border: none;
   border-radius: 8px;

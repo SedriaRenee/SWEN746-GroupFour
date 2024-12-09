@@ -5,7 +5,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
-    background-color: #f0f2f5;  /* Facebook-like light gray background */
+    background-color: #d9d9d9;  /* Facebook-like light gray background */
     min-height: 100vh; /* Full screen height */
   }
   
@@ -18,7 +18,7 @@
   
   /* Each individual post */
   .post {
-    background-color: #ffffff;
+    background-color: #d9d9d9;
     padding: 16px;
     margin-bottom: 20px;
     border-radius: 12px; /* Rounded corners like Facebook */
@@ -99,7 +99,7 @@
     width: 100%;
     padding: 12px;
     margin-top: 12px;
-    background-color: #3b82f6;
+    background-color: #ece4b7;
     color: white;
     border-radius: 8px;
     font-size: 1.1rem;
