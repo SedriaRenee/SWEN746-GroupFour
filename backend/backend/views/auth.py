@@ -7,37 +7,72 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth.models import User
+from ..models import User
 from backend.forms import UsernameChangeForm
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework_simplejwt.tokens import RefreshToken
+from ..serializers import UserSerializer
+from rest_framework.response import Response
 
-# API Signup View
 @api_view(['POST'])
 def signup(request):
     if request.method == 'POST':
         try:
-            data = json.loads(request.body)
-            username = data['username']
-            password = data['password']
-            password2 = data['password2']
-
-            if password != password2:
-                return JsonResponse({'error': 'Passwords do not match'}, status=400)
+            # Print the incoming request data for debugging
+            print(f"Received data: {request.data}")
+            
+            data = request.data
+            username = data.get('username')
+            password = data.get('password')
+            first_name = data.get('first_name')
+            last_name = data.get('last_name')
+            email = data.get('email')
+            phoneNumber = data.get('phoneNumber', '')
 
             if User.objects.filter(username=username).exists():
-                return JsonResponse({'error': 'Username already exists'}, status=400)
+                return Response({'error': 'Username already exists'}, status=status.HTTP_400_BAD_REQUEST)
 
-            user = User.objects.create_user(username=username, password=password)
-            return JsonResponse({'message': 'User created successfully'}, status=201)
+            if User.objects.filter(email=email).exists():
+                return Response({'error': 'Email already exists'}, status=status.HTTP_400_BAD_REQUEST)
+
+            user_data = {
+                'username': username,
+                'password': password,
+                'first_name': first_name,
+                'last_name': last_name,
+                'phoneNumber': phoneNumber,
+                'email': email
+            }
+
+            # Create user with serializer
+            serializer = UserSerializer(data=user_data)
+
+            if serializer.is_valid():
+                user = serializer.save()
+
+                # Generate JWT tokens
+                refresh = RefreshToken.for_user(user)
+                access_token = str(refresh.access_token)
+                refresh_token = str(refresh)
+
+                login(request, user)
+
+                return Response({
+                    'message': 'User created successfully.',
+                    'access_token': access_token,
+                    'refresh_token': refresh_token,
+                    'redirect': f'/profile/{user.username}/'
+                }, status=status.HTTP_201_CREATED)
+
+            return Response({'error': 'Invalid data'}, status=status.HTTP_400_BAD_REQUEST)
 
         except Exception as e:
-            return JsonResponse({'error': str(e)}, status=500)
-    else:
-        return JsonResponse({'error': 'Invalid request method'}, status=400)
+            logging.error(f"Signup error: {e}")
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-   
+
 # API Login View
 @api_view(['POST'])
 def login_view(request):

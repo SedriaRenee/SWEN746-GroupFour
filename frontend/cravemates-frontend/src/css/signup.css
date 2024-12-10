@@ -65,3 +65,20 @@
     color: #ECF0F1;
   }
   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #2C3E50; 
+  color: #dd6031;
+}
+
+.signup-container {
+  background: #34495E; 
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-sizing: border-box; /* Ensure padding is included */
+}

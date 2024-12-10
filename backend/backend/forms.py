@@ -37,14 +37,19 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = [
-            'fullname', 
+            'first_name', 
+            'last_name', 
             'bio', 
             'profile_picture',
             'username', 
             'email', 
             'phoneNumber', 
-            'tags'
+            'tags',
+            'password',
+            'age',
+            'years_at_rit'
         ]
+
 
 
 class PostForm(forms.ModelForm):
