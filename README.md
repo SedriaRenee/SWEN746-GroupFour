@@ -209,3 +209,10 @@ https://drive.google.com/file/d/1IOUmy6L-ris5MdbeLZ-2XgavSlhCtZ2R/view?usp=shari
 https://app.diagrams.net/#G1IOUmy6L-ris5MdbeLZ-2XgavSlhCtZ2R#%7B%22pageId%22%3A%22sXF_qgFIhSkNeDmUX0QF%22%7D
 
 
+
+Apache
+Apache 2.0 License
+License
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+
